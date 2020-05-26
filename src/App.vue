@@ -31,15 +31,6 @@ export default {
       color: 0
     }
   },
-  created() {
-    this.startGame();
-    this.color = Math.floor(Math.random() * 360);
-    this.updateColor();
-    setInterval(() => {
-      this.color ++;
-      this.updateColor();
-    }, 1000);
-  },
   methods: {
     startGame() {
       if(this.pairs < 1 || this.pairs >= 200) {
@@ -51,9 +42,6 @@ export default {
       }
       this.$store.dispatch('startGame', parseInt(this.pairs));
     },
-    updateColor() {
-      document.documentElement.style.setProperty('--main-color', `hsl(${this.color}, 100%, 50%)`);
-    }
   },
   components: {
     CardsTable,
