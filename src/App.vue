@@ -3,7 +3,7 @@
     <h2>Memory card game</h2>
 
     <transition name="fade">
-      <timer v-if="$store.state.playing" />
+     
     </transition>
 
     <cards-table />
@@ -22,7 +22,6 @@
 
 <script>
 import CardsTable from './components/CardsTable.vue'
-import Timer from './components/Timer.vue'
 import Modal from './components/Modal.vue'
 
 export default {
@@ -58,7 +57,6 @@ export default {
   },
   components: {
     CardsTable,
-    Timer,
     Modal
   }
 }
