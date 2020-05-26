@@ -3,7 +3,7 @@
     <h2>Memory card game</h2>
 
     <transition name="fade">
-      <timer v-if="$store.state.playing" />
+     
     </transition>
 
     <cards-table />
@@ -22,7 +22,6 @@
 
 <script>
 import CardsTable from './components/CardsTable.vue'
-import Timer from './components/Timer.vue'
 import Modal from './components/Modal.vue'
 
 export default {
@@ -31,15 +30,6 @@ export default {
       pairs: 5,
       color: 0
     }
-  },
-  created() {
-    this.startGame();
-    this.color = Math.floor(Math.random() * 360);
-    this.updateColor();
-    setInterval(() => {
-      this.color ++;
-      this.updateColor();
-    }, 1000);
   },
   methods: {
     startGame() {
@@ -52,13 +42,9 @@ export default {
       }
       this.$store.dispatch('startGame', parseInt(this.pairs));
     },
-    updateColor() {
-      document.documentElement.style.setProperty('--main-color', `hsl(${this.color}, 100%, 50%)`);
-    }
   },
   components: {
     CardsTable,
-    Timer,
     Modal
   }
 }
