@@ -21,10 +21,10 @@ export default new Vuex.Store({
       state.playing = false;
       state.timer = false;
     },
-    createCard(state, {id, randomPairItem}) {
+    createCard(state, {id, PickedItem}) {
       state.table.push({
         id,
-        value: randomPairItem,
+        value: PickedItem,
         found: false,
         opened: false,
         animating: false
@@ -64,18 +64,18 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    startGame({dispatch, commit}, pairs) {
+    startGame({dispatch, commit}, picked) {
       commit('resetValues');
-      dispatch('createCardTable', pairs);
+      dispatch('createCardTable', picked);
     },
-    createCardTable({commit}, pairs) {
-      let itemPairs = new Array(pairs).fill(0);
-      for (let i = 0; i < pairs * 2; i++) {
+    createCardTable({commit}, picked) {
+      let itemPicked = new Array(picked).fill(0);
+      for (let i = 0; i < picked * 2; i++) {
         do {
-          var randomPairItem = Math.floor(Math.random() * pairs);
-        } while (itemPairs[randomPairItem] > 1);
-        itemPairs[randomPairItem]++;
-        commit('createCard', { id: i, randomPairItem });
+          var randomPickedItem = Math.floor(Math.random() * picked);
+        } while (itemPicked [randomPickedItem] > 1);
+        itemPicked[randomPickedItem]++;
+        commit('createCard', { id: i, randomPickedItem });
       }
     },
     openCard({dispatch, state, commit}, id) {

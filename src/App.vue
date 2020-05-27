@@ -9,7 +9,15 @@
     <cards-table />
 
     <form @submit.prevent="startGame">
-      <span>Card pairs:</span> <input min="1" placeholder="Card pairs" v-model="pairs" type="number">
+      <span>Cards</span> 
+      <input type="radio" id="4" value="2" v-model="picked">
+      <label for="4">4</label>
+      <br>
+      <input type="radio" id="8" value="4" v-model="picked">
+      <label for="two">8</label>
+      <input type="radio" id="12" value="6" v-model="picked">
+      <label for="two">12</label>
+      <br>
       <button>Start new game</button>
     </form>
 
@@ -27,20 +35,16 @@ import Modal from './components/Modal.vue'
 export default {
   data() {
     return {
-      pairs: 5,
+      picked: 4, 
       color: 0
     }
   },
   methods: {
     startGame() {
-      if(this.pairs < 1 || this.pairs >= 200) {
-        this.$store.commit('setModal', {
-          title: "Wait... That's illegal",
-          message: "You can't set that amount of card pairs"          
-        });
+      if(this.picked === 4 || this.picked === 8 || this.picked === 12) {
         return;
       }
-      this.$store.dispatch('startGame', parseInt(this.pairs));
+      this.$store.dispatch('startGame', parseInt(this.picked));
     },
   },
   components: {
