@@ -37,7 +37,7 @@ div.card {
     width: 75px;
     height: 75px;
     margin: 15px;
-    color: white;
+    color:rgb(0, 5, 82);
     display: flex;
     align-content: center;
     span {
