@@ -38,10 +38,10 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: black;
+    background-color:rgb(0, 5, 82);
     border-radius: 3px;
     padding: 15px;
-    box-shadow: 0 0 5px gray;
+    box-shadow: 0 0 8px gray;
 
     button {
         cursor: pointer;

@@ -52,11 +52,11 @@ export default {
 
 <style lang="scss">
 :root {
-  --main-color: hsl(0, 100%, 50%);
-  --bg-color: black;
+  --main-color: rgb(255, 255, 255);
+  --bg-color: rgb(0, 5, 82);
 }
 body {
-  background: url('./assets/bg.jpg');
+  background: rgb(255, 255, 255);
   color: var(--main-color);
   text-shadow: 0 0 6px black;
 }
@@ -75,11 +75,12 @@ body {
   }
   button {
     background-color: var(--main-color);
-    color: white;
+    color:rgb(0, 5, 82);
     border: none;
     cursor: pointer;
     transition: box-shadow 0.2s ease-in;
-    text-shadow: 0 0 6px black;
+    text-shadow: 0 0 6px  rgb(71, 72, 77);
+    
   }
   button:hover {
     box-shadow: 2px 2px 0 grey;
